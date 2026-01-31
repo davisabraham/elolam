@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELOLAM | Everlasting Worship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --accent: #ffcc66;
+            --bg-dark: #080808;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: #fff; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 25px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; letter-spacing: 5px; color: #fff; text-decoration: none; text-transform: lowercase; }
+        .nav-links a {
+            color: #fff; text-decoration: none; margin-left: 35px;
+            font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+            transition: 0.3s; opacity: 0.6;
+        }
+        .nav-links a:hover { color: var(--accent); opacity: 1; }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), var(--bg-dark)), 
+                        url('background.png');
+            background-size: cover;
+            background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+            background-attachment: fixed;
+        }
+        .hero-logo { font-family: 'Cinzel', serif; font-size: clamp(3.5rem, 10vw, 7rem); letter-spacing: 15px; text-transform: lowercase; margin-bottom: 5px; }
+        .hero-sub { color: var(--gold); letter-spacing: 10px; text-transform: uppercase; font-weight: 200; font-size: 1rem; margin-bottom: 30px;}
+
+        /* --- SECTION STYLING --- */
+        section { padding: 120px 10%; position: relative; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 40px; letter-spacing: 6px; text-align: center; color: var(--gold); }
+
+        /* --- ABOUT (THE HEART) --- */
+        #about { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.05); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .about-text p { font-weight: 200; line-height: 2; font-size: 1.1rem; color: #ddd; margin-bottom: 20px; }
+        .about-text b { color: var(--gold); }
+
+        /* --- MUSIC SECTION --- */
+        #music { background: var(--bg-dark); text-align: center; }
+        .video-box {
+            width: 100%; max-width: 850px; aspect-ratio: 16/9;
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 175, 55, 0.2);
+            margin: 0 auto 40px; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact { background: #080808; text-align: center; }
+        .contact-card {
+            background: var(--glass); padding: 80px 40px; border: 1px solid rgba(255,255,255,0.05);
+            max-width: 800px; margin: 0 auto;
+        }
+        .email-link {
+            font-family: 'Cinzel';
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 30px 0;
+            transition: 0.3s;
+            word-break: break-word;
+        }
+        .email-link:hover { color: var(--gold); }
+
+        .btn {
+            display: inline-block; padding: 15px 40px; border: 1px solid var(--gold);
+            color: var(--gold); text-decoration: none; letter-spacing: 3px; font-size: 0.8rem;
+            transition: all 0.4s; margin: 10px;
+        }
+        .btn:hover { background: var(--gold); color: #000; transform: translateY(-3px); }
+
+        /* --- ANIMATION --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .nav-links { display: none; }
+            .hero-logo { font-size: 3.5rem; }
+            .email-link { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .btn { padding: 12px 25px; font-size: 0.75rem; }
+            footer { padding: 30px 10px; font-size: 0.65rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="logo">elolam</a>
+        <div class="nav-links">
+            <a href="#about">The Heart</a>
+            <a href="#music">Music</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h1 class="hero-logo">elolam</h1>
+        <p class="hero-sub">Faith • Hope • Worship</p>
+        <a href="#contact" class="btn">STAY UPDATED</a>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left;">The Mission</h2>
+                <p>Derived from <b>El Olam</b>, meaning the Everlasting God, our music serves as a bridge to the eternal. We believe music is more than songs, it is an experience where heaven meets earth.</p>
+                <p>Based on a foundation of deep-rooted faith, <b>elolam</b> is preparing to launch a new movement in 2026.</p>
+            </div>
+            <div style="border: 1px solid var(--glass); padding: 15px;">
+                <img src="background1.jpeg" style="width: 100%; opacity: 0.7;" alt="Band">
+            </div>
+        </div>
+    </section>
+
+    <section id="music" class="reveal">
+        <h2 class="section-title">The Sound</h2>
+        <div class="video-box">
+            <p style="letter-spacing: 5px; opacity: 0.5;">DEBUT VIDEO COMING SOON</p>
+        </div>
+        <a href="https://www.youtube.com/@Elolamband" target="_blank" class="btn">SUBSCRIBE ON YOUTUBE</a>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="contact-card">
+            <h2 class="section-title">Connect</h2>
+            <p style="opacity: 0.6; letter-spacing: 1px;">For booking and inquiries:</p>
+            <a href="mailto:bandelolam@gmail.com" class="email-link">bandelolam@gmail.com</a>
+            
+            <div style="margin-top: 40px;">
+                <a href="https://www.instagram.com/elolambandofficial/" target="_blank" class="btn">INSTAGRAM</a>
+                <a href="https://www.youtube.com/@Elolamband" target="_blank" class="btn">YOUTUBE</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 60px; text-align: center; font-size: 0.7rem; opacity: 0.3; letter-spacing: 4px;">
+        © 2026 ELOLAM MUSIC | ETERNITY IS NOW
+    </footer>
+
+    <script>
+        // Reveal elements on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+    </script>
+</body>
+</html>
